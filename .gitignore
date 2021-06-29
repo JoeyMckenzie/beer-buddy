@@ -74,3 +74,47 @@ beer-buddy-client/.env.production.local
 # vercel
 beer-buddy-client/.vercel
 
+# Beer Buddy client
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+beer-buddy-nx/dist
+beer-buddy-nx/tmp
+beer-buddy-nx/out-tsc
+
+# dependencies
+beer-buddy-nx/node_modules
+
+# IDEs and editors
+beer-buddy-nx/.idea
+beer-buddy-nx/.project
+beer-buddy-nx/.classpath
+beer-buddy-nx/.c9/
+beer-buddy-nx/*.launch
+beer-buddy-nx/.settings/
+beer-buddy-nx/*.sublime-workspace
+
+# IDE - VSCode
+beer-buddy-nx/.vscode/*
+!beer-buddy-nx/.vscode/settings.json
+!beer-buddy-nx/.vscode/tasks.json
+!beer-buddy-nx/.vscode/launch.json
+!beer-buddy-nx/.vscode/extensions.json
+
+# misc
+beer-buddy-nx/.sass-cache
+beer-buddy-nx/connect.lock
+beer-buddy-nx/coverage
+beer-buddy-nx/libpeerconnection.log
+beer-buddy-nx/npm-debug.log
+beer-buddy-nx/yarn-error.log
+beer-buddy-nx/testem.log
+beer-buddy-nx/typings
+
+# System Files
+beer-buddy-nx/.DS_Store
+beer-buddy-nx/Thumbs.db
+
+beer-buddy-nx/.vercel
+
