@@ -1,4 +1,4 @@
-type Maybe<T> = T | undefined | null;
+import { Maybe } from '../types';
 
 export const isNullOrUndefined = <T>(objectToValidate: Maybe<T>): boolean =>
   objectToValidate === null || objectToValidate === undefined;

@@ -1,9 +1,11 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import sharedReducer from './shared-slice';
+import { beersSlice } from '@features';
 
 export const store = configureStore({
   reducer: {
     shared: sharedReducer,
+    beers: beersSlice.reducer,
   },
 });
 
