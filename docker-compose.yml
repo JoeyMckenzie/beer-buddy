@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      timeout: 10s
+      interval: 1s
+      retries: 25
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+
+  beer_buddy_api:
+    # The root directory from which we're building.
+    build:
+      context: .
+      dockerfile: ./beer-buddy-api/Dockerfile
+
+    # This makes it so any code changes inside the project
+    # directory get synced with Docker. Without this line,
+    # we'd have to restart the container every time we
+    # changed a file.
+    volumes:
+      - ./beer-buddy-api:/app:cached
+
+    # The command to be run when we run "docker-compose up".
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3001 -b '0.0.0.0'"
+
+    # Expose port 3000.
+    ports:
+      - 3001:3001
+
+    # Specify that this container depends on the other
+    # container which we've called "database".
+    depends_on:
+      - postgres
+
+    # Specify the values of the environment variables
+    # used in this container.
+    env_file:
+      - .env
+
+  beer_buddy_client:
+    build:
+      context: .
+      dockerfile: ./beer-buddy-client/Dockerfile
+    volumes:
+      - ./beer-buddy-client:/app:cached
+    ports:
+      - 3000:3000
+    depends_on:
+      - beer_buddy_api
