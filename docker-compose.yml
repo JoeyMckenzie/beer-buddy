@@ -49,7 +49,7 @@ services:
   beer_buddy_client:
     build:
       context: .
-      dockerfile: ./beer-buddy-client/Dockerfile
+      dockerfile: ./beer-buddy-client-temp/Dockerfile
     volumes:
       - ./beer-buddy-client:/app:cached
     ports:
