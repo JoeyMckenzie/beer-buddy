@@ -1,5 +1,6 @@
 # Project ignore files
 .env
+.idea
 
 # Beer Buddy API ignore files
 

@@ -19,7 +19,8 @@
       "@beer-buddy-nx/features/breweries": [
         "libs/features/breweries/src/index.ts"
       ],
-      "@beer-buddy-nx/shared": ["libs/shared/src/index.ts"]
+      "@beer-buddy-nx/shared": ["libs/shared/src/index.ts"],
+      "@components": ["apps/beer-buddy/components/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

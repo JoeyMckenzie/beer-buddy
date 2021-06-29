@@ -2,7 +2,7 @@ FROM node:lts as dependencies
 WORKDIR /app
 COPY ./beer-buddy-nx/package.json .
 COPY ./beer-buddy-nx/package-lock.json .
-RUN npm install --save-dev
+RUN npm install
 
 FROM node:lts as builder
 WORKDIR /app
