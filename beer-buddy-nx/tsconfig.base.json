@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@beer-buddy-nx/features/beers": ["libs/features/beers/src/index.ts"],
+      "@beer-buddy-nx/features/breweries": [
+        "libs/features/breweries/src/index.ts"
+      ],
+      "@beer-buddy-nx/shared": ["libs/shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -35,14 +35,3 @@ services:
     # used in this container.
     env_file:
       - .env
-
-  beer_buddy_nx:
-    build:
-      context: .
-      dockerfile: ./beer-buddy-nx/Dockerfile
-    volumes:
-      - ./beer-buddy-nx:/app:cached
-    ports:
-      - 4200:4200
-    depends_on:
-      - beer_buddy_api

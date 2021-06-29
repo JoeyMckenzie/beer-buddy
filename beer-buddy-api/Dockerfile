@@ -19,4 +19,4 @@ COPY ./beer-buddy-api .
 
 # Set "rails server -b 0.0.0.0" as the command to
 # run when this container starts.
-CMD ["rails", "s", "-b", "0.0.0.0", "-p", "3001", "-e", "production"]
+CMD ["rails", "s", "-b", "0.0.0.0", "-p", "3000", "-e", "production"]

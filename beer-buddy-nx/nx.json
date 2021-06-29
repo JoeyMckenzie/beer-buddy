@@ -33,6 +33,15 @@
     "beer-buddy-e2e": {
       "tags": [],
       "implicitDependencies": ["beer-buddy"]
+    },
+    "features-beers": {
+      "tags": []
+    },
+    "features-breweries": {
+      "tags": []
+    },
+    "shared": {
+      "tags": []
     }
   }
 }

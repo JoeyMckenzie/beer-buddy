@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:latest
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+      timeout: 10s
+      interval: 1s
+      retries: 25
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432

@@ -77,6 +77,69 @@
           }
         }
       }
+    },
+    "features-beers": {
+      "root": "libs/features/beers",
+      "sourceRoot": "libs/features/beers/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/features/beers/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/beers"],
+          "options": {
+            "jestConfig": "libs/features/beers/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "features-breweries": {
+      "root": "libs/features/breweries",
+      "sourceRoot": "libs/features/breweries/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/features/breweries/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/features/breweries"],
+          "options": {
+            "jestConfig": "libs/features/breweries/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared": {
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

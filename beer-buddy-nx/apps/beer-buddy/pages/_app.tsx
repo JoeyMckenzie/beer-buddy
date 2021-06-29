@@ -1,25 +1,13 @@
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { ReactComponent as NxLogo } from '../public/nx-logo-white.svg';
 import './styles.css';
+import { FC } from 'react';
+import { store } from '@beer-buddy-nx/shared';
+import { Provider } from 'react-redux';
 
-function CustomApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Head>
-        <title>Welcome to beer-buddy!</title>
-      </Head>
-      <div className="app">
-        <header className="flex">
-          <NxLogo width="75" height="50" />
-          <h1>Welcome to beer-buddy!</h1>
-        </header>
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
-    </>
-  );
-}
+const CustomApp: FC<AppProps> = ({ Component, pageProps }) => (
+  <Provider store={store}>
+    <Component {...pageProps} />
+  </Provider>
+);
 
 export default CustomApp;
