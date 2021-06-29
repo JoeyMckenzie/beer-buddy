@@ -1,4 +1,4 @@
 {
   "extends": ["eslint:recommended", "next"],
-  "ignorePatterns": ["tailwind.config.js", "postcss.config.js"]
+  "ignorePatterns": ["tailwind.config.js", "postcss.config.js", "jest.config.js"]
 }
