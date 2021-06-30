@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import Footer from '../components/Footer';
+import Link from 'next/link';
+import { Footer } from '@components';
 
 const Index: FC = () => (
   <div className="relative overflow-hidden">
@@ -16,20 +17,18 @@ const Index: FC = () => (
           </p>
           <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
             <div className="rounded-md shadow">
-              <a
-                href="#"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-              >
-                Get started
-              </a>
+              <Link href="/beers">
+                <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 md:py-4 md:text-lg md:px-10">
+                  To the beers
+                </a>
+              </Link>
             </div>
             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-              <a
-                href="#"
-                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
-              >
-                Live demo
-              </a>
+              <Link href="/breweries">
+                <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-gray-50 hover:bg-gray-100 md:py-4 md:text-lg md:px-10">
+                  Find a brewery
+                </a>
+              </Link>
             </div>
           </div>
         </div>
