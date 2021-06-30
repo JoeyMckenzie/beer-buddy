@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { Footer } from './Footer';
+import { Box, Container } from '@chakra-ui/react';
 
 export const Layout: FC = ({ children }) => (
-  <div className="bg-white dark:bg-warm-gray-900">
-    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">{children}</div>
+  <Container maxW="container.lg">
+    <Box>{children}</Box>
     <Footer />
-  </div>
+  </Container>
 );
