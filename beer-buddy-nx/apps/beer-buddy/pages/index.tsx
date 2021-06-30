@@ -1,18 +1,21 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import { Footer } from '@components';
+import { Faq } from '@components';
 
 const Index: FC = () => (
   <div className="relative overflow-hidden">
-    <div className="relative pt-6 pb-16 sm:pb-24">
+    <div className="relative pt-6 pb-16">
       <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
         <div className="text-center">
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span className="block xl:inline">
-              Beer <span className="text-indigo-600">Buddy</span>
+              <span className="text-black dark:text-white">Beer</span>{' '}
+              <span className="text-indigo-600 dark:text-indigo-500">
+                Buddy
+              </span>
             </span>
           </h1>
-          <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+          <p className="mt-3 max-w-md mx-auto text-base text-gray-500 dark:text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
             The internet's most useless beer-based web application!
           </p>
           <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
@@ -32,7 +35,7 @@ const Index: FC = () => (
             </div>
           </div>
         </div>
-        <Footer />
+        <Faq />
       </main>
     </div>
   </div>

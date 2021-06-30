@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultColors = require('tailwindcss/colors');
 
 module.exports = {
   purge: {
@@ -9,11 +10,14 @@ module.exports = {
       './apps/beer-buddy/components/**/*.{tsx,jsx,ts,js}',
     ],
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        'warm-gray': defaultColors.warmGray,
       },
     },
   },

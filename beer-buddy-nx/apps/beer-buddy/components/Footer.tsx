@@ -1,11 +1,31 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { FC } from 'react';
+import { ThemeToggle } from './ThemeToggle';
+import Link from 'next/link';
 
-interface SocialHeroiconLink {
+interface NavLink {
   name: string;
   href: string;
+}
+
+interface SocialHeroiconLink extends NavLink {
   icon: (additionalProps: any) => JSX.Element;
 }
+
+const navLinks: NavLink[] = [
+  {
+    name: 'Home',
+    href: '/',
+  },
+  {
+    name: 'Beers',
+    href: '/beers',
+  },
+  {
+    name: 'Breweries',
+    href: '/breweries',
+  },
+];
 
 const socialLinks: SocialHeroiconLink[] = [
   {
@@ -66,21 +86,40 @@ const socialLinks: SocialHeroiconLink[] = [
 ];
 
 export const Footer: FC = () => (
-  <footer className="bg-white">
-    <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+  <footer>
+    <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden flex flex-col items-center sm:px-6 lg:px-8">
+      <nav
+        className="-mx-5 -my-2 flex flex-wrap justify-center"
+        aria-label="Footer"
+      >
+        {navLinks.map((item) => (
+          <div key={item.name} className="px-5 py-2">
+            <Link href={item.href}>
+              <a
+                href={item.href}
+                className="text-base text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-4`00"
+              >
+                {item.name}
+              </a>
+            </Link>
+          </div>
+        ))}
+      </nav>
       <div className="mt-8 flex justify-center space-x-6">
         {socialLinks.map((item) => (
-          <a
-            key={item.name}
-            href={item.href}
-            className="text-gray-400 hover:text-gray-500"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="sr-only">{item.name}</span>
-            <item.icon className="h-6 w-6" aria-hidden="true" />
-          </a>
+          <Link key={item.href} href={item.href}>
+            <a
+              key={item.name}
+              className="text-gray-400 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-400"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="sr-only">{item.name}</span>
+              <item.icon className="h-6 w-6" aria-hidden="true" />
+            </a>
+          </Link>
         ))}
+        <ThemeToggle />
       </div>
       <p className="mt-8 text-center text-base text-gray-400">
         &copy; 2021 Beer Buddy, Inc. All rights reserved.

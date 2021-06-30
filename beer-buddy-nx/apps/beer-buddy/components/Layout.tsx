@@ -1,5 +1,9 @@
 import { FC } from 'react';
+import { Footer } from './Footer';
 
 export const Layout: FC = ({ children }) => (
-  <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">{children}</div>
+  <div className="bg-white dark:bg-warm-gray-900">
+    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">{children}</div>
+    <Footer />
+  </div>
 );
