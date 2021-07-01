@@ -6,6 +6,14 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import React from 'react';
+import { extendTheme, ThemeConfig, ColorModeScript } from '@chakra-ui/react';
+
+const config: ThemeConfig = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+};
+
+const theme = extendTheme({ config });
 
 class CustomDocument extends Document {
   static async getInitialProps(context: DocumentContext) {
@@ -16,6 +24,9 @@ class CustomDocument extends Document {
   render() {
     return (
       <Html>
+        <Head>
+          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        </Head>
         <body>
           <Main />
           <NextScript />

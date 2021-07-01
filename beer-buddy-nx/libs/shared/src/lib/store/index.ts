@@ -1,5 +1,5 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import { beerBuddyApi } from '../api';
+import { beerBuddyApi } from '@beer-buddy-nx/features/beers';
 
 export const store = configureStore({
   reducer: {

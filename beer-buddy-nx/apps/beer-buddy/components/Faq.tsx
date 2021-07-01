@@ -1,5 +1,13 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { FC } from 'react';
+import { Box, SimpleGrid } from '@chakra-ui/react';
+import {
+  FcDoughnutChart,
+  FcMultipleDevices,
+  FcPrivacy,
+  FcTimeline,
+} from 'react-icons/fc';
+import FaqQuestion from './FaqQuestion';
 
 interface FaqItem {
   question: string;
@@ -30,29 +38,31 @@ const faqs: FaqItem[] = [
 ];
 
 export const Faq: FC = () => (
-  <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-    <div className="max-w-2xl lg:mx-auto lg:text-center">
-      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-        Infrequently asked questions
-      </h2>
-      <p className="mt-4 text-gray-500 dark:text-gray-400">
-        I'm sure you're wondering why I wrote an app about beer, and to be quite
-        honest, I am too.
-      </p>
-    </div>
-    <div className="mt-20">
-      <dl className="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
-        {faqs.map((faq) => (
-          <div key={faq.question}>
-            <dt className="font-semibold text-gray-900 dark:text-gray-50">
-              {faq.question}
-            </dt>
-            <dd className="mt-3 text-gray-500 dark:text-gray-300">
-              {faq.answer}
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </div>
-  </div>
+  <Box as="section" maxW="5xl" mx="auto" py="12" px={{ base: '6', md: '8' }}>
+    <SimpleGrid
+      columns={{ base: 1, md: 2 }}
+      spacingX="10"
+      spacingY={{ base: '8', md: '14' }}
+    >
+      <FaqQuestion title="Secure by default" icon={<FcPrivacy />}>
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus.
+      </FaqQuestion>
+      <FaqQuestion title="Always up to date" icon={<FcTimeline />}>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore.
+      </FaqQuestion>
+      <FaqQuestion title="Incredible statistics" icon={<FcDoughnutChart />}>
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus.
+      </FaqQuestion>
+      <FaqQuestion
+        title="Support for multiple devices"
+        icon={<FcMultipleDevices />}
+      >
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore.
+      </FaqQuestion>
+    </SimpleGrid>
+  </Box>
 );

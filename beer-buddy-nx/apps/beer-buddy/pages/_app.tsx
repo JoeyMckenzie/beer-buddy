@@ -2,12 +2,11 @@ import { AppProps } from 'next/app';
 import { FC } from 'react';
 import { store } from '@beer-buddy-nx/shared';
 import { Provider } from 'react-redux';
-import { Layout } from '@components';
+import { ChakraColorModeProvider, Layout } from '@components';
 import Head from 'next/head';
-import { ChakraProvider } from '@chakra-ui/react';
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => (
-  <ChakraProvider>
+  <ChakraColorModeProvider cookies={pageProps.cookies}>
     <Provider store={store}>
       <Layout>
         <Head>
@@ -16,7 +15,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => (
         <Component {...pageProps} />
       </Layout>
     </Provider>
-  </ChakraProvider>
+  </ChakraColorModeProvider>
 );
 
 export default CustomApp;

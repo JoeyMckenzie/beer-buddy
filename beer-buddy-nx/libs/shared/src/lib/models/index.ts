@@ -1,2 +1,5 @@
-export * from './shared';
-export * from './requests';
+export interface ApiResponse<T> {
+  message: string;
+  success: boolean;
+  data: T;
+}
