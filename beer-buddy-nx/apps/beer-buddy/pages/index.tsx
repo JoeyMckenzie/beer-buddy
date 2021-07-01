@@ -57,5 +57,3 @@ const Index: FC = () => {
 };
 
 export default Index;
-
-export { getServerSideProps } from '@components';

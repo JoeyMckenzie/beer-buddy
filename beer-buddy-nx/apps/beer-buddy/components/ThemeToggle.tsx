@@ -1,10 +1,14 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useColorMode, Switch } from '@chakra-ui/react';
 
 export const ThemeToggle: FC = () => {
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
 
-  useEffect(() => console.log('test'), []);
-
-  return <Switch onChange={toggleColorMode} colorScheme="teal" />;
+  return (
+    <Switch
+      isChecked={colorMode === 'dark'}
+      onChange={toggleColorMode}
+      colorScheme="teal"
+    />
+  );
 };
