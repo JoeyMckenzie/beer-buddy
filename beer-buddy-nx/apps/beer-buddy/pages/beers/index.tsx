@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { PageHeader } from '@components';
 import { Box, Center, Flex, Spinner } from '@chakra-ui/react';
 import { BeerSearch, useGetBeersQuery } from '@beer-buddy-nx/features/beers';
@@ -17,7 +17,7 @@ const Beers: FC = () => {
         tagLine="Search our extensive database for any beer imaginable... yes, we even
           have Coors Light."
       />
-      <Flex direction={'column'} gridGap={10} justifyContent={'center'}>
+      <Flex direction={'column'} gridGap={16} justifyContent={'center'}>
         {isLoading && (
           <Center>
             <Spinner />

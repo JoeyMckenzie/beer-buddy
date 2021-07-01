@@ -9,7 +9,6 @@ import {
   TableCaption,
 } from '@chakra-ui/react';
 import { FC } from 'react';
-import { useGetBeersQuery } from '../services';
 
 export const BeerSearchResults: FC = () => {
   return (
