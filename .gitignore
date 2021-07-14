@@ -60,7 +60,7 @@ beer-buddy-nx/.vscode/*
 !beer-buddy-nx/.vscode/extensions.json
 
 # local env files
-beer-buddy-nx/.env
+beer-buddy-nx/.env.local
 beer-buddy-nx/.env.local
 beer-buddy-nx/.env.development.local
 beer-buddy-nx/.env.test.local

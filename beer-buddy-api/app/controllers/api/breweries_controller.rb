@@ -1,17 +1,23 @@
 module Api
   class BreweriesController < ApplicationController
-    before_action :set_brewery, only: [:show, :update, :destroy]
+    def initialize
+      @logger = Rails.logger
+      super
+    end
 
     # GET /breweries
     def index
-      @breweries = Brewery.includes(:beer)
+      @logger.info('Received request to retrieve all breweries')
+      get_breweries_response = GetBreweries.call
 
-      render json: @breweries
+      render json: ApiResponseBlueprint.render(get_breweries_response.response)
     end
 
     # GET /breweries/1
     def show
-      render json: @brewery
+      get_brewery_response = GetBrewery.call(params)
+
+      render json: get_brewery_response.response
     end
 
     # POST /breweries
@@ -40,14 +46,15 @@ module Api
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_brewery
-        @brewery = Brewery.find(params[:id])
-      end
 
-      # Only allow a list of trusted parameters through.
-      def brewery_params
-        params.require(:brewery).permit(:name)
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_brewery
+      @brewery = Brewery.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def brewery_params
+      params.require(:brewery).permit(:name)
+    end
   end
 end

@@ -4,6 +4,7 @@ module Api
 
     # GET /beers
     def index
+      puts 'Retrieving beers'
       @beers = Beer.all.includes(:brewery)
 
       render json: @beers
@@ -11,6 +12,7 @@ module Api
 
     # GET /beers/1
     def show
+      puts 'Retrieving beer'
       render json: @beer
     end
 

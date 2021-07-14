@@ -8,7 +8,9 @@ const Beers: FC = () => {
   // TODO: This is causing Next to warn about running layout effects while in SSG mode
   // This needs to be updated for `useEffect()`: https://github.com/reduxjs/redux-toolkit/blob/8565fc25803beedc1032d67473c6b448da588405/packages/toolkit/src/query/react/buildHooks.ts#L660
   // Issue: https://github.com/reduxjs/redux-toolkit/issues/1173
-  const { isLoading } = useGetBeersQuery();
+  const { isLoading, data } = useGetBeersQuery();
+
+  useEffect(() => console.log(data), [data]);
 
   return (
     <Box>

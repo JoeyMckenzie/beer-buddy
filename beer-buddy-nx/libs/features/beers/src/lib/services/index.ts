@@ -2,12 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { ApiResponse } from '@beer-buddy-nx/shared';
 import { Beer, SearchBeerRequest } from '../models';
 
-// eslint-disable-next-line no-undef
-const API_BASE_URL = process.env.API_BASE_URL;
-
-export const beerBuddyApi = createApi({
-  reducerPath: 'beerBuddyApi',
-  baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
+export const beerBuddyBeersApi = createApi({
+  reducerPath: 'beerBuddyBeersApi',
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
   endpoints: (builder) => ({
     getBeers: builder.query<ApiResponse<Beer[]>, void>({
       query: () => 'beers',
@@ -27,4 +24,4 @@ export const beerBuddyApi = createApi({
   }),
 });
 
-export const { useGetBeersQuery, useGetBeerQuery } = beerBuddyApi;
+export const { useGetBeersQuery, useGetBeerQuery } = beerBuddyBeersApi;
